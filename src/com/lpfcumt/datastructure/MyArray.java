@@ -1,9 +1,5 @@
 package com.lpfcumt.datastructure;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Stream;
-
 /**   
  * @ClassName MyArray   
  * @Description TODO(一个简单的无序数组实现)   
@@ -98,9 +94,6 @@ public class MyArray {
 		array.push("aaa");
 		array.push("bbb");
 		array.dsplay();
-		char a = 'a';
-		
-		System.out.println('a');
 	}
 
 }

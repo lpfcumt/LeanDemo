@@ -90,7 +90,7 @@ public class MyArray {
 	}
 	
 	public static void main(String[] args) {
-		MyArray array = new  MyArray(2);
+		MyArray array = new MyArray(2);
 		array.push("aaa");
 		array.push("bbb");
 		array.dsplay();

@@ -12,12 +12,12 @@ package com.lpfcumt.calculation;
 
 /**
  * @ClassName QuikSort
- * @Description TODO(这里用一句话描述这个类的作用)
+ * @Description TODO(快速排序)
  * @author lin.pf
  * @date 2019年2月26日 下午3:21:16
  * @Copyright 2019 www.github.com/lpfcumt Inc. All rights reserved.
  */
-public class QuikSort extends BaseArray{
+public class QuikSort extends BaseArray {
 
 	private int[] array;
 
@@ -54,9 +54,12 @@ public class QuikSort extends BaseArray{
 	/**
 	 * 以pivot为基准对下标low到high的数组进行划分
 	 * 
-	 * @param low 数组段的最小下标
-	 * @param high 数组段的最大下标
-	 * @param pivot 划分的基准元素
+	 * @param low
+	 *            数组段的最小下标
+	 * @param high
+	 *            数组段的最大下标
+	 * @param pivot
+	 *            划分的基准元素
 	 * @return 划分完成后基准元素所在位置的下标
 	 */
 	private int partition(int low, int high, int pivot) {
@@ -89,7 +92,7 @@ public class QuikSort extends BaseArray{
 	}
 
 	public static void main(String[] args) {
-		int[] a = {13, 5, 4, 11, 2, 20, 18, 15};
+		int[] a = { 13, 5, 4, 11, 2, 20, 18, 15 };
 		QuikSort sort = new QuikSort(a);
 		sort.quikSort();
 	}

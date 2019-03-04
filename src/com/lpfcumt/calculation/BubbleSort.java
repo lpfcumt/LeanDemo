@@ -17,7 +17,7 @@ package com.lpfcumt.calculation;
  * @date 2019年2月25日 下午4:57:51
  * @Copyright 2019 www.github.com/lpfcumt Inc. All rights reserved.
  */
-public class BubbleSort extends BaseArray{
+public class BubbleSort extends BaseArray {
 	private int[] array;
 
 	public BubbleSort(int[] array) {

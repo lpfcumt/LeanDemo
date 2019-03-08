@@ -21,28 +21,28 @@ import java.util.concurrent.CountDownLatch;
  */
 public class CountDownLatchTest {
 
-	private static final int THREADS_LENGTH = 10;
-	private static CountDownLatch downLatch;
+    private static final int THREADS_LENGTH = 10;
+    private static CountDownLatch downLatch;
 
-	public static void main(String[] args) throws InterruptedException {
-		downLatch = new CountDownLatch(THREADS_LENGTH);
-		Thread[] threads = new Thread[THREADS_LENGTH];
-		for (int i = 0; i < THREADS_LENGTH; i++) {
-			int name = i;
-			threads[i] = new Thread(new Runnable() {
+    public static void main(String[] args) throws InterruptedException {
+        downLatch = new CountDownLatch(THREADS_LENGTH);
+        Thread[] threads = new Thread[THREADS_LENGTH];
+        for (int i = 0; i < THREADS_LENGTH; i++) {
+            int name = i;
+            threads[i] = new Thread(new Runnable() {
 
-				@Override
-				public void run() {
-					System.out.println(name + "：正在干活。。。");
-					downLatch.countDown();
-				}
-			});
-			threads[i].start();
-		}
-		threads[1].join();
-		System.out.println("等待所有员工干活完成。。。");
-		downLatch.await();
-		System.out.println("领导检查。。。");
-	}
+                @Override
+                public void run() {
+                    System.out.println(name + "：正在干活。。。");
+                    downLatch.countDown();
+                }
+            });
+            threads[i].start();
+        }
+        threads[1].join();
+        System.out.println("等待所有员工干活完成。。。");
+        downLatch.await();
+        System.out.println("领导检查。。。");
+    }
 
 }

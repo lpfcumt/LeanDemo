@@ -19,17 +19,17 @@ package com.lpfcumt.calculation;
  */
 public class BaseArray {
 
-	private int[] array;
+    private int[] array;
 
-	public BaseArray(int[] array) {
-		this.array = array;
-	}
+    public BaseArray(int[] array) {
+        this.array = array;
+    }
 
-	public void display() {
-		for (int i = 0; i < array.length; i++) {
-			System.out.print(array[i] + "\t");
-		}
-		System.out.println();
-	}
+    public void display() {
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + "\t");
+        }
+        System.out.println();
+    }
 
 }

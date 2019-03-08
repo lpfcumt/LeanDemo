@@ -22,37 +22,37 @@ import java.util.Vector;
  */
 public class VectorSafeTest {
 
-	private static Vector<Integer> vector = new Vector<Integer>();
+    private static Vector<Integer> vector = new Vector<Integer>();
 
-	public static void main(String[] args) {
-		while (true) {
-			for (int i = 0; i < 10; i++) {
-				vector.add(i);
-			}
+    public static void main(String[] args) {
+        while (true) {
+            for (int i = 0; i < 10; i++) {
+                vector.add(i);
+            }
 
-			Thread printThread = new Thread(new Runnable() {
-				@Override
-				public void run() {
-					for (int i = 0; i < vector.size(); i++) {
-						System.out.println(vector.get(i));
-					}
-				}
-			});
+            Thread printThread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    for (int i = 0; i < vector.size(); i++) {
+                        System.out.println(vector.get(i));
+                    }
+                }
+            });
 
-			Thread removeTread = new Thread(new Runnable() {
-				@Override
-				public void run() {
-					for (int i = 0; i < vector.size(); i++) {
-						vector.remove(i);
-					}
-				}
-			});
+            Thread removeTread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    for (int i = 0; i < vector.size(); i++) {
+                        vector.remove(i);
+                    }
+                }
+            });
 
-			removeTread.start();
-			printThread.start();
+            removeTread.start();
+            printThread.start();
 
-			while (Thread.activeCount() > 20)
-				;
-		}
-	}
+            while (Thread.activeCount() > 20)
+                ;
+        }
+    }
 }

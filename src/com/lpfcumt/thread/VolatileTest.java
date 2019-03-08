@@ -22,40 +22,40 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class VolatileTest {
 
-	// public static volatile int race = 0; // 线程不安全，不具备原子性
-	public static AtomicInteger race = new AtomicInteger(0);
+    // public static volatile int race = 0; // 线程不安全，不具备原子性
+    public static AtomicInteger race = new AtomicInteger(0);
 
-	// incrementAndGet 方法是原子性 调用了Unsafe 类里的 原子性方法
-	public static void increase() {
-		// race++;
-		race.incrementAndGet();
-	}
+    // incrementAndGet 方法是原子性 调用了Unsafe 类里的 原子性方法
+    public static void increase() {
+        // race++;
+        race.incrementAndGet();
+    }
 
-	private static final int THREADS_COUNT = 20;
+    private static final int THREADS_COUNT = 20;
 
-	public static void main(String[] args) throws InterruptedException {
-		Thread[] threads = new Thread[THREADS_COUNT];
-		final CountDownLatch downLatch = new CountDownLatch(20);
-		for (int i = 0; i < THREADS_COUNT; i++) {
-			threads[i] = new Thread(new Runnable() {
+    public static void main(String[] args) throws InterruptedException {
+        Thread[] threads = new Thread[THREADS_COUNT];
+        final CountDownLatch downLatch = new CountDownLatch(20);
+        for (int i = 0; i < THREADS_COUNT; i++) {
+            threads[i] = new Thread(new Runnable() {
 
-				@Override
-				public void run() {
-					for (int j = 0; j < 10000; j++) {
-						increase();
-					}
-					System.out.println(Thread.currentThread().getName() + ":" + race);
-					downLatch.countDown();
-				}
-			});
-			threads[i].start();
-		}
-		downLatch.await();
-		// while (Thread.activeCount() > 1) {
-		// Thread.yield();
-		// System.out.println(race);
-		// }
-		System.out.println(race);
-	}
+                @Override
+                public void run() {
+                    for (int j = 0; j < 10000; j++) {
+                        increase();
+                    }
+                    System.out.println(Thread.currentThread().getName() + ":" + race);
+                    downLatch.countDown();
+                }
+            });
+            threads[i].start();
+        }
+        downLatch.await();
+        // while (Thread.activeCount() > 1) {
+        // Thread.yield();
+        // System.out.println(race);
+        // }
+        System.out.println(race);
+    }
 
 }

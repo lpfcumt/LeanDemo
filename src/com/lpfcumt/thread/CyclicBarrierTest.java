@@ -22,36 +22,36 @@ import java.util.concurrent.CyclicBarrier;
  */
 public class CyclicBarrierTest {
 
-	private static CyclicBarrier barrier;
-	private static final int THREADS_LENGTH = 10;
+    private static CyclicBarrier barrier;
+    private static final int THREADS_LENGTH = 10;
 
-	public static void main(String[] args) throws Exception {
-		barrier = new CyclicBarrier(THREADS_LENGTH);
-		Thread[] threads = new Thread[THREADS_LENGTH];
-		for (int i = 0; i < THREADS_LENGTH; i++) {
-			int name = i;
-			threads[i] = new Thread(new Runnable() {
+    public static void main(String[] args) throws Exception {
+        barrier = new CyclicBarrier(THREADS_LENGTH);
+        Thread[] threads = new Thread[THREADS_LENGTH];
+        for (int i = 0; i < THREADS_LENGTH; i++) {
+            int name = i;
+            threads[i] = new Thread(new Runnable() {
 
-				@Override
-				public void run() {
-					System.out.println(name + "：等待其他线程。。。");
-					try {
-						System.out.println(barrier.getNumberWaiting()); // 获取当前阻塞线程的数量
-						barrier.await();
+                @Override
+                public void run() {
+                    System.out.println(name + "：等待其他线程。。。");
+                    try {
+                        System.out.println(barrier.getNumberWaiting()); // 获取当前阻塞线程的数量
+                        barrier.await();
 
-						System.out.println(name + "：开始执行。。。");
-						Thread.sleep(1000);
+                        System.out.println(name + "：开始执行。。。");
+                        Thread.sleep(1000);
 
-						System.out.println(name + "：执行完毕。。。");
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					} catch (BrokenBarrierException e) {
-						e.printStackTrace();
-					}
-				}
-			});
-			threads[i].start();
-		}
-	}
+                        System.out.println(name + "：执行完毕。。。");
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    } catch (BrokenBarrierException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+            threads[i].start();
+        }
+    }
 
 }

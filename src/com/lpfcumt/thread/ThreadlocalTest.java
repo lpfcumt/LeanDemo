@@ -22,35 +22,35 @@ import java.util.concurrent.CountDownLatch;
  */
 public class ThreadlocalTest {
 
-	public static void main(String[] args) throws InterruptedException {
-		CountDownLatch downLatch = new CountDownLatch(10);
-		ThreadLocal<String> tLocal = new ThreadLocal<String>() {
-			@Override
-			protected String initialValue() {
-				return "my first threadlocal";
-			}
-		};
-		Thread[] threads = new Thread[10];
-		for (int i = 0; i < 10; i++) {
-			threads[i] = new Thread(new Runnable() {
+    public static void main(String[] args) throws InterruptedException {
+        CountDownLatch downLatch = new CountDownLatch(10);
+        ThreadLocal<String> tLocal = new ThreadLocal<String>() {
+            @Override
+            protected String initialValue() {
+                return "my first threadlocal";
+            }
+        };
+        Thread[] threads = new Thread[10];
+        for (int i = 0; i < 10; i++) {
+            threads[i] = new Thread(new Runnable() {
 
-				public void run() {
+                public void run() {
 
-					System.out.println(Thread.currentThread().getName() + tLocal.get());
-					tLocal.set(Thread.currentThread().getName());
-					System.out.println(Thread.currentThread().getName() + tLocal.get());
-					downLatch.countDown();
-				}
-			});
-			threads[i].start();
-		}
-		// while (Thread.activeCount() > 1) {
-		// Thread.yield();
-		// System.out.println(tLocal.get());
-		// }
-		downLatch.await();
-		tLocal.set("aaaaaaaaaaaaaaaaa");
-		System.out.println(tLocal.get());
-	}
+                    System.out.println(Thread.currentThread().getName() + tLocal.get());
+                    tLocal.set(Thread.currentThread().getName());
+                    System.out.println(Thread.currentThread().getName() + tLocal.get());
+                    downLatch.countDown();
+                }
+            });
+            threads[i].start();
+        }
+        // while (Thread.activeCount() > 1) {
+        // Thread.yield();
+        // System.out.println(tLocal.get());
+        // }
+        downLatch.await();
+        tLocal.set("aaaaaaaaaaaaaaaaa");
+        System.out.println(tLocal.get());
+    }
 
 }

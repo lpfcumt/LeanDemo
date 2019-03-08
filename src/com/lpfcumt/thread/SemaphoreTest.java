@@ -22,34 +22,34 @@ import java.util.concurrent.Semaphore;
  */
 public class SemaphoreTest {
 
-	public static Semaphore semaphore;
-	private static final int THREADS_LENGTH = 10;
-	private static final int CAR_PORT = 5;
+    public static Semaphore semaphore;
+    private static final int THREADS_LENGTH = 10;
+    private static final int CAR_PORT = 5;
 
-	public static void main(String[] args) {
-		semaphore = new Semaphore(CAR_PORT, true);
-		Thread[] threads = new Thread[THREADS_LENGTH];
-		System.out.println("总共有" + CAR_PORT + "个停车位");
-		for (int i = 0; i < THREADS_LENGTH; i++) {
-			threads[i] = new Thread(new Runnable() {
+    public static void main(String[] args) {
+        semaphore = new Semaphore(CAR_PORT, true);
+        Thread[] threads = new Thread[THREADS_LENGTH];
+        System.out.println("总共有" + CAR_PORT + "个停车位");
+        for (int i = 0; i < THREADS_LENGTH; i++) {
+            threads[i] = new Thread(new Runnable() {
 
-				@Override
-				public void run() {
-					try {
-						semaphore.acquire();
-						System.out.println(Thread.currentThread().getName() + "获得了一个停车位");
-						System.out
-								.println(Thread.currentThread().getName() + "当前剩余停车位：" + semaphore.availablePermits());
-						Thread.sleep(3000);
-						System.out.println(Thread.currentThread().getName() + "释放了一个停车位");
-						semaphore.release();
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
-				}
-			});
-			threads[i].start();
-		}
-	}
+                @Override
+                public void run() {
+                    try {
+                        semaphore.acquire();
+                        System.out.println(Thread.currentThread().getName() + "获得了一个停车位");
+                        System.out
+                                .println(Thread.currentThread().getName() + "当前剩余停车位：" + semaphore.availablePermits());
+                        Thread.sleep(3000);
+                        System.out.println(Thread.currentThread().getName() + "释放了一个停车位");
+                        semaphore.release();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+            threads[i].start();
+        }
+    }
 
 }

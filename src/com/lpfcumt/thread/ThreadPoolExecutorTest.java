@@ -15,12 +15,16 @@
  */
 package com.lpfcumt.thread;
 
-import java.util.concurrent.ExecutorService;
+import java.io.Serializable;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @ClassName ThreadPoolTest
- * @Description TODO(测试 threadpoolexecutor 类 的使用方法 及 实现原理)
+ * @Description TODO(测试 threadpoolexecutor 类 的使用方法 及 实现原理
+ *              线程池为线程生命周期的开销和资源不足问题提供了解决方案。通过对多个任务重用线程，线程创建的开销被分摊到了多个任务上)
  * @author lin.pf
  * @date 2019年3月1日 下午5:41:41
  * @Copyright 2019 www.github.com/lpfcumt Inc. All rights reserved.
@@ -28,8 +32,46 @@ import java.util.concurrent.ThreadPoolExecutor;
 public class ThreadPoolExecutorTest {
 
     public static void main(String[] args) {
-    
-        // ExecutorService executorService = new ThreadPoolExecutor();
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(10, 15, 100, TimeUnit.MILLISECONDS,
+                new ArrayBlockingQueue<>(5), new ThreadPoolExecutor.DiscardOldestPolicy());
+        for (int i = 1; i <= 16; i++) {
+            try {
+                String task = "task@ " + i;
+                System.out.println("创建任务并提交到线程池中：" + task);
+                threadPoolExecutor.execute(new ThreadPoolTask(task));
+
+                
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
+    static class ThreadPoolTask implements Runnable, Serializable {
+
+        /**
+         * @Fields serialVersionUID : TODO(用一句话描述这个变量表示什么)
+         */
+        private static final long serialVersionUID = 1L;
+        
+        private Object attachData;
+
+        ThreadPoolTask(Object tasks) {
+            this.attachData = tasks;
+        }
+
+        public void run() {
+            System.out.println("开始执行任务：" + attachData);
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            attachData = null;
+        }
+
+        public Object getTask() {
+            return this.attachData;
+        }
+    }
 }

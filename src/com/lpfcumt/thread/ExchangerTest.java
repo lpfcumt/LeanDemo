@@ -24,7 +24,7 @@ import java.util.concurrent.Executors;
  * @Copyright 2019 www.github.com/lpfcumt Inc. All rights reserved.
  */
 public class ExchangerTest {
-	
+
 	public final native boolean isAlive();
 
 	@SuppressWarnings("rawtypes")
@@ -50,23 +50,23 @@ public class ExchangerTest {
 			}
 		});
 
-//		executor.execute(new Runnable() {
-//			String data1 = "哈里斯";
-//
-//			@Override
-//			public void run() {
-//				nbaTrade(data1, exchanger);
-//			}
-//		});
-//
-//		executor.execute(new Runnable() {
-//			String data1 = "以赛亚托马斯，弗莱";
-//
-//			@Override
-//			public void run() {
-//				nbaTrade(data1, exchanger);
-//			}
-//		});
+		// executor.execute(new Runnable() {
+		// String data1 = "哈里斯";
+		//
+		// @Override
+		// public void run() {
+		// nbaTrade(data1, exchanger);
+		// }
+		// });
+		//
+		// executor.execute(new Runnable() {
+		// String data1 = "以赛亚托马斯，弗莱";
+		//
+		// @Override
+		// public void run() {
+		// nbaTrade(data1, exchanger);
+		// }
+		// });
 
 		executor.shutdown();
 	}

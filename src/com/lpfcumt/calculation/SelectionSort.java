@@ -18,7 +18,7 @@ package com.lpfcumt.calculation;
  * @Copyright 2019 www.github.com/lpfcumt Inc. All rights reserved.
  */
 public class SelectionSort extends BaseArray {
-	
+
 	private int[] array;
 
 	public SelectionSort(int[] array) {
@@ -93,7 +93,7 @@ public class SelectionSort extends BaseArray {
 	}
 
 	public static void main(String[] args) {
-		int[] a = {13, 5, 4, 11, 2, 20, 18, 15};
+		int[] a = { 13, 5, 4, 11, 2, 20, 18, 15 };
 		SelectionSort sort = new SelectionSort(a);
 		sort.selectionSort();
 	}

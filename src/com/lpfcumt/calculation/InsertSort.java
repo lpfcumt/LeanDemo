@@ -66,12 +66,9 @@ public class InsertSort extends BaseArray {
 	/**
 	 * 二分查找法
 	 * 
-	 * @param lowerBound
-	 *            查找段的最小下标
-	 * @param upperBound
-	 *            查找段的最大下标
-	 * @param target
-	 *            目标元素
+	 * @param lowerBound 查找段的最小下标
+	 * @param upperBound 查找段的最大下标
+	 * @param target 目标元素
 	 * @return 目标元素应该插入位置的下标
 	 */
 	public int binarySearch(int lowerBound, int upperBound, int target) {

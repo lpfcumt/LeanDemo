@@ -12,17 +12,15 @@ package com.lpfcumt.thread;
 
 import java.util.concurrent.CountDownLatch;
 
-/**   
- * @ClassName CountDownLatchTest   
- * @Description TODO(测试 countdownlatch 类的用法
- * 		利用它可以实现类似计数器的功能。比如有一个任务A，它要等待其他4个任务执行完毕之后才能执行
- * 	)   
- * @author lin.pf 
- * @date 2019年2月28日 下午3:39:42     
- * @Copyright 2019 www.github.com/lpfcumt Inc. All rights reserved. 
+/**
+ * @ClassName CountDownLatchTest
+ * @Description TODO(测试 countdownlatch 类的用法 利用它可以实现类似计数器的功能。比如有一个任务A，它要等待其他4个任务执行完毕之后才能执行 )
+ * @author lin.pf
+ * @date 2019年2月28日 下午3:39:42
+ * @Copyright 2019 www.github.com/lpfcumt Inc. All rights reserved.
  */
 public class CountDownLatchTest {
-	
+
 	private static final int THREADS_LENGTH = 10;
 	private static CountDownLatch downLatch;
 
@@ -32,7 +30,7 @@ public class CountDownLatchTest {
 		for (int i = 0; i < THREADS_LENGTH; i++) {
 			int name = i;
 			threads[i] = new Thread(new Runnable() {
-				
+
 				@Override
 				public void run() {
 					System.out.println(name + "：正在干活。。。");

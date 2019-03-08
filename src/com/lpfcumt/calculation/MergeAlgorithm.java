@@ -41,12 +41,9 @@ public class MergeAlgorithm {
 	/**
 	 * 递归的归并排序
 	 * 
-	 * @param workSpace
-	 *            辅助排序的数组
-	 * @param lowerBound
-	 *            欲归并数组段的最小下标
-	 * @param upperBound
-	 *            欲归并数组段的最大下标
+	 * @param workSpace 辅助排序的数组
+	 * @param lowerBound 欲归并数组段的最小下标
+	 * @param upperBound 欲归并数组段的最大下标
 	 */
 	private void recursiveMergeSort(int[] workSpace, int lowerBound, int upperBound) {
 		if (lowerBound == upperBound) { // 该段只有一个元素，不用排序
@@ -63,14 +60,10 @@ public class MergeAlgorithm {
 	/**
 	 * 对数组array中的两段进行合并，lowerBound~mid为低位段，mid+1~upperBound为高位段
 	 * 
-	 * @param workSpace
-	 *            辅助归并的数组，容纳归并后的元素
-	 * @param lowerBound
-	 *            合并段的起始下标
-	 * @param mid
-	 *            合并段的中点下标
-	 * @param upperBound
-	 *            合并段的结束下标
+	 * @param workSpace 辅助归并的数组，容纳归并后的元素
+	 * @param lowerBound 合并段的起始下标
+	 * @param mid 合并段的中点下标
+	 * @param upperBound 合并段的结束下标
 	 */
 	private void merge(int[] workSpace, int lowerBound, int mid, int upperBound) {
 		int lowBegin = lowerBound; // 低位段的起始下标

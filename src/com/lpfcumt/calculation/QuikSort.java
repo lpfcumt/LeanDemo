@@ -34,10 +34,8 @@ public class QuikSort extends BaseArray {
 	/**
 	 * 递归的快速排序
 	 * 
-	 * @param low
-	 *            数组的最小下标
-	 * @param high
-	 *            数组的最大下标
+	 * @param low 数组的最小下标
+	 * @param high 数组的最大下标
 	 */
 	private void recursiveQuikSort(int low, int high) {
 		if (low >= high) {
@@ -54,12 +52,9 @@ public class QuikSort extends BaseArray {
 	/**
 	 * 以pivot为基准对下标low到high的数组进行划分
 	 * 
-	 * @param low
-	 *            数组段的最小下标
-	 * @param high
-	 *            数组段的最大下标
-	 * @param pivot
-	 *            划分的基准元素
+	 * @param low 数组段的最小下标
+	 * @param high 数组段的最大下标
+	 * @param pivot 划分的基准元素
 	 * @return 划分完成后基准元素所在位置的下标
 	 */
 	private int partition(int low, int high, int pivot) {
@@ -80,10 +75,8 @@ public class QuikSort extends BaseArray {
 	/**
 	 * 交换数组中两个元素的数据
 	 * 
-	 * @param low
-	 *            欲交换元素的低位下标
-	 * @param high
-	 *            欲交换元素的高位下标
+	 * @param low 欲交换元素的低位下标
+	 * @param high 欲交换元素的高位下标
 	 */
 	private void swap(int low, int high) {
 		int temp = array[high];

@@ -45,14 +45,11 @@ public class ShellSort extends BaseArray {
 	}
 
 	/**
-	 * 希尔排序内部使用的插入排序:
-	 * 需要进行插入排序的元素为array[beginIndex]、array[beginIndex+increment]、array[
+	 * 希尔排序内部使用的插入排序: 需要进行插入排序的元素为array[beginIndex]、array[beginIndex+increment]、array[
 	 * beginIndex+2*increment]...
 	 * 
-	 * @param beginIndex
-	 *            起始下标
-	 * @param increment
-	 *            增量
+	 * @param beginIndex 起始下标
+	 * @param increment 增量
 	 */
 	private void shellInsertSort(int beginIndex, int increment) {
 		int targetIndex = beginIndex + increment; // 欲插入元素的下标

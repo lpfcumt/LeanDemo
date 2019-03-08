@@ -18,18 +18,18 @@ package com.lpfcumt.thread;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.ThreadPoolExecutor;
 
-/**   
- * @ClassName ThreadPoolTest   
- * @Description TODO(测试  threadpoolexecutor 类 的使用方法 及 实现原理)   
- * @author lin.pf 
- * @date 2019年3月1日 下午5:41:41     
- * @Copyright 2019 www.github.com/lpfcumt Inc. All rights reserved. 
+/**
+ * @ClassName ThreadPoolTest
+ * @Description TODO(测试 threadpoolexecutor 类 的使用方法 及 实现原理)
+ * @author lin.pf
+ * @date 2019年3月1日 下午5:41:41
+ * @Copyright 2019 www.github.com/lpfcumt Inc. All rights reserved.
  */
 public class ThreadPoolExecutorTest {
 
-	
 	public static void main(String[] args) {
-//		ExecutorService executorService = new  ThreadPoolExecutor();
+
+		// ExecutorService executorService = new ThreadPoolExecutor();
 	}
 
 }
